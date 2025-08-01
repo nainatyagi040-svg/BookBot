@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e6f2ff, #b3e5fc);
+  color: #222;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating icons with unique zigzag + scale animation */
+.float-icon {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  animation: zigzagFloat infinite linear;
+  opacity: 0.12;
+}
+
+@keyframes zigzagFloat {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.9) rotate(0deg);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-25vh) translateX(-10px) scale(1.05) rotate(15deg);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(10px) scale(1.1) rotate(0deg);
+    opacity: 0.1;
+  }
+  75% {
+    transform: translateY(-75vh) translateX(-10px) scale(1.05) rotate(-15deg);
+    opacity: 0.08;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(0) scale(1) rotate(0deg);
+    opacity: 0.05;
+  }
+}
+
+/* Positions and types */
+.float-icon.book { background-image: url('https://img.icons8.com/ios-filled/50/000000/open-book--v2.png'); }
+.float-icon.flower { background-image: url('https://img.icons8.com/emoji/48/hibiscus.png'); }
+.float-icon.spark { background-image: url('https://img.icons8.com/color/48/firework.png'); }
+
+.float-icon:nth-child(1) { left: 8%; top: 110%; animation-duration: 30s; }
+.float-icon:nth-child(2) { left: 22%; top: 115%; animation-duration: 34s; }
+.float-icon:nth-child(3) { left: 38%; top: 112%; animation-duration: 29s; }
+.float-icon:nth-child(4) { left: 53%; top: 118%; animation-duration: 35s; }
+.float-icon:nth-child(5) { left: 66%; top: 110%; animation-duration: 31s; }
+.float-icon:nth-child(6) { left: 79%; top: 117%; animation-duration: 33s; }
+.float-icon:nth-child(7) { left: 92%; top: 114%; animation-duration: 36s; }
+
+/* Main entrance animation */
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  animation: fadeSlideIn 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Container swing animation */
+.container {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  border-radius: 22px;
+  padding: 30px;
+  width: 280px;
+  color: #840000;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: swing 4s ease-in-out infinite;
+  text-align: center;
+}
+@keyframes swing {
+  0% { transform: rotateZ(0deg); }
+  25% { transform: rotateZ(1.5deg); }
+  50% { transform: rotateZ(-1.5deg); }
+  75% { transform: rotateZ(1.5deg); }
+  100% { transform: rotateZ(0deg); }
+}
+
+/* Bot image 3D pop-spin */
+.bot-image {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  animation: popSpin 10s infinite ease-in-out;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+@keyframes popSpin {
+  0% { transform: rotateY(0deg) scale(1); }
+  50% { transform: rotateY(180deg) scale(1.2); }
+  100% { transform: rotateY(360deg) scale(1); }
+}
+
+/* Features section */
+.features {
+  max-width: 500px;
+  color: #333;
+  background: rgba(173, 142, 142, 0.7);
+  border-radius: 20px;
+  padding: 25px 30px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.features h2 {
+  margin-bottom: 12px;
+  font-size: 2rem;
+  color: #0063d5;
+}
+
+.features ul {
+  list-style-type: disc;
+  padding-left: 22px;
+}
+
+.features li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .container {
+    margin-bottom: 25px;
+  }
+
+  .features {
+    width: 90%;
+  }
+}
